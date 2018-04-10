@@ -17,10 +17,6 @@ namespace PrismXamarin.Views
 		public MainPage ()
 		{
                 InitializeComponent();
-                var listView = new ListView();
-                List<User> users = new List<User>();
-                List<String> user_names = new List<String>();
-
                 JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
                 {
                     ContractResolver = new CamelCasePropertyNamesContractResolver(),
@@ -33,6 +29,9 @@ namespace PrismXamarin.Views
 
                 istanbulUsers.ObserveOn(SynchronizationContext.Current).Subscribe(resp =>
                     {
+                        var listView = new ListView();
+                        List<User> users = new List<User>();
+                        List<String> user_names = new List<String>();
                         users = resp.items;
                         foreach (User user in users)
                         {
