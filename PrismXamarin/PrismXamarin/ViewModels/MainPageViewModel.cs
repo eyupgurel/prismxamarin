@@ -32,7 +32,7 @@ namespace PrismXamarin.ViewModels
 
             IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
 
-            IDisposable disp= istanbulUsers.ObserveOn(SynchronizationContext.Current).Subscribe(resp =>
+            IDisposable disp= istanbulUsers.Subscribe(resp =>
                 {
                     resp.items.ForEach(user => userNames.Add(user.ToString()));
                 },

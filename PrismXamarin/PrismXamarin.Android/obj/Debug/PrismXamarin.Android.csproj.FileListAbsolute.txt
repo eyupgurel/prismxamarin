@@ -107,6 +107,7 @@ C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\D
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\android\assets\Unity.Container.pdb
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\android\assets\Unity.ServiceLocation.pdb
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\bin\Debug\PrismXamarin.Android.dll
+C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\linksrc\PrismXamarin.pdb
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\linksrc\PrismXamarin.Android.dll.mdb
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\linksrc\FormsViewGroup.dll.mdb
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin.Android\obj\Debug\linksrc\Xamarin.Forms.Core.dll.mdb
