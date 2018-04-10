@@ -1,6 +1,6 @@
 ﻿using System;
 using Refit;
-using PrismXamarin.Model;
+using PrismXamarin.Models;
 
 namespace PrismXamarin.Interface
 {

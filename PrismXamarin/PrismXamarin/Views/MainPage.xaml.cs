@@ -6,7 +6,7 @@ using Refit;
 using System;
 using System.Collections.Generic;
 using Xamarin.Forms;
-using PrismXamarin.Model;
+using PrismXamarin.Models;
 using System.Reactive.Linq;
 using System.Threading;
 
@@ -16,36 +16,7 @@ namespace PrismXamarin.Views
 	{
 		public MainPage ()
 		{
-                InitializeComponent();
-                JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
-                {
-                    ContractResolver = new CamelCasePropertyNamesContractResolver(),
-                    Converters = { new StringEnumConverter() }
-                };
-
-                IGitHubApi gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
-
-                IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
-
-                istanbulUsers.ObserveOn(SynchronizationContext.Current).Subscribe(resp =>
-                    {
-                        var listView = new ListView();
-                        List<User> users = new List<User>();
-                        List<String> user_names = new List<String>();
-                        users = resp.items;
-                        foreach (User user in users)
-                        {
-                            user_names.Add(user.ToString());
-                        }
-                        listView.ItemsSource = user_names;
-                        Padding = new Thickness(0, 20, 0, 0);
-                        Content = listView;
-                    },
-                    ex => {
-                        string error = ex.Message;
-                    },
-                    () => { }
-                );
+            InitializeComponent();
         }
 	}
 }

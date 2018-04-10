@@ -8,4 +8,3 @@ C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\net
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.AssemblyInfo.cs
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.dll
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.pdb
-C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.csprojResolveAssemblyReference.cache

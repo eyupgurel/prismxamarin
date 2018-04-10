@@ -5,6 +5,9 @@ using PrismXamarin.Views;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Prism.Unity;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Newtonsoft.Json.Serialization;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace PrismXamarin
@@ -23,6 +26,11 @@ namespace PrismXamarin
         protected override async void OnInitialized()
         {
             InitializeComponent();
+            JsonConvert.DefaultSettings = () => new JsonSerializerSettings()
+            {
+                ContractResolver = new CamelCasePropertyNamesContractResolver(),
+                Converters = { new StringEnumConverter() }
+            };
 
             await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }

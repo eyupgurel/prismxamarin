@@ -11,6 +11,8 @@ namespace PrismXamarin.ViewModels
     {
         protected INavigationService NavigationService { get; private set; }
 
+        protected List<IDisposable> disposables = new List<IDisposable>();
+
         private string _title;
         public string Title
         {
@@ -40,7 +42,11 @@ namespace PrismXamarin.ViewModels
 
         public virtual void Destroy()
         {
-            
+            disposables.ForEach(disp => disp.Dispose());
         }
+
+
+
+
     }
 }
