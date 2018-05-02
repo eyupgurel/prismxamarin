@@ -23,16 +23,16 @@ namespace PrismXamarin.ViewModels
             : base (navigationService)
         {
             Title = "Main Page";
-            load();
+            Load();
         }
 
-        private void load()
+        private void Load()
         {
-            IGitHubApi gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
+            var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
 
             IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
 
-            IDisposable disp= istanbulUsers.Subscribe(resp =>
+            var disp = istanbulUsers.Subscribe(resp =>
                 {
                     resp.items.ForEach(user => userNames.Add(user.ToString()));
                 },

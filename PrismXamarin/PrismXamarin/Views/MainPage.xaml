@@ -7,6 +7,6 @@
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
         <ListView x:Name="listView" 
 			      ItemsSource="{Binding UserNames}" />
-        </StackLayout>
+    </StackLayout>
 
 </ContentPage>

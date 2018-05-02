@@ -2,6 +2,18 @@ PrismXamarin.Droid.MainActivity, PrismXamarin.Android;md57957a7fa31f8ed51fd896cd
 PrismXamarin.Droid.MainActivity, PrismXamarin.Android, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;md57957a7fa31f8ed51fd896cdf07f317fb.MainActivity
 PrismXamarin.Droid.MainActivity;md57957a7fa31f8ed51fd896cdf07f317fb.MainActivity
 prismxamarin.droid.MainActivity;md57957a7fa31f8ed51fd896cdf07f317fb.MainActivity
+GalaSoft.MvvmLight.Views.ActivityBase, GalaSoft.MvvmLight.Platform;md54ed5d3d82bc760df3f16570e3e2f7544.ActivityBase
+GalaSoft.MvvmLight.Views.ActivityBase, GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=null;md54ed5d3d82bc760df3f16570e3e2f7544.ActivityBase
+GalaSoft.MvvmLight.Views.ActivityBase;md54ed5d3d82bc760df3f16570e3e2f7544.ActivityBase
+galasoft.mvvmlight.views.ActivityBase;md54ed5d3d82bc760df3f16570e3e2f7544.ActivityBase
+GalaSoft.MvvmLight.Views.DialogService/OnDismissListener, GalaSoft.MvvmLight.Platform;md54ed5d3d82bc760df3f16570e3e2f7544.DialogService_OnDismissListener
+GalaSoft.MvvmLight.Views.DialogService+OnDismissListener, GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=null;md54ed5d3d82bc760df3f16570e3e2f7544.DialogService_OnDismissListener
+GalaSoft.MvvmLight.Views.DialogService.OnDismissListener;md54ed5d3d82bc760df3f16570e3e2f7544.DialogService_OnDismissListener
+galasoft.mvvmlight.views.DialogService_OnDismissListener;md54ed5d3d82bc760df3f16570e3e2f7544.DialogService_OnDismissListener
+GalaSoft.MvvmLight.Helpers.ObservableAdapter`1, GalaSoft.MvvmLight.Platform;md527ff6a506675f117049e52031d7e4a1d.ObservableAdapter_1
+GalaSoft.MvvmLight.Helpers.ObservableAdapter`1, GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=null;md527ff6a506675f117049e52031d7e4a1d.ObservableAdapter_1
+GalaSoft.MvvmLight.Helpers.ObservableAdapter`1;md527ff6a506675f117049e52031d7e4a1d.ObservableAdapter_1
+galasoft.mvvmlight.helpers.ObservableAdapter_1;md527ff6a506675f117049e52031d7e4a1d.ObservableAdapter_1
 Android.Support.V4.Widget.SearchViewCompat/IOnCloseListenerImplementor, Xamarin.Android.Support.Compat;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat+IOnCloseListenerImplementor, Xamarin.Android.Support.Compat, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor
 Android.Support.V4.Widget.SearchViewCompat.IOnCloseListenerImplementor;mono.android.support.v4.widget.SearchViewCompat_OnCloseListenerImplementor

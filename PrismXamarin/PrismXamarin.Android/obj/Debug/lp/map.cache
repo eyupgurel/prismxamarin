@@ -1,5 +1,8 @@
 CommonServiceLocator
 FormsViewGroup
+GalaSoft.MvvmLight
+GalaSoft.MvvmLight.Extras
+GalaSoft.MvvmLight.Platform
 Microsoft.AspNetCore.WebUtilities
 Microsoft.Extensions.Primitives
 Microsoft.Net.Http.Headers
@@ -50,15 +53,15 @@ System.Collections
 System.Globalization
 System.IO.FileSystem
 System.IO.FileSystem.Primitives
+System.Threading
+System.Reflection.Extensions
+System.ObjectModel
 System.Runtime.Numerics
 System.Xml.XmlDocument
 System.Xml.XDocument
 System.Dynamic.Runtime
 System.Runtime.Serialization.Formatters
-System.ObjectModel
 System.Xml.ReaderWriter
-System.Threading
-System.Reflection.Extensions
 System.Reflection.Primitives
 System.Text.Encoding.Extensions
 System.Net.Primitives

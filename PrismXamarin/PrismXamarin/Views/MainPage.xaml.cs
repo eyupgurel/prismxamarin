@@ -16,7 +16,7 @@ namespace PrismXamarin.Views
 	{
 		public MainPage ()
 		{
-            InitializeComponent();
-        }
+			InitializeComponent();
+		}
 	}
 }

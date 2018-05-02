@@ -100,6 +100,9 @@
           "lib/netstandard1.0/_._": {}
         }
       },
+      "MvvmLight/5.4.1": {
+        "type": "package"
+      },
       "NETStandard.Library/2.0.1": {
         "type": "package",
         "dependencies": {
@@ -1559,6 +1562,18 @@
         "microsoft.netcore.targets.1.1.0.nupkg.sha512",
         "microsoft.netcore.targets.nuspec",
         "runtime.json"
+      ]
+    },
+    "MvvmLight/5.4.1": {
+      "sha512": "b5MlUz3DzEa8rIdx9DBizriYizNRIGF9prT8r7gTKhSIsQuxwABDo+6L4tpKlYJjIBANCP94fPsAMddcAZyGuA==",
+      "type": "package",
+      "path": "mvvmlight/5.4.1",
+      "files": [
+        "Content/ViewModel/MainViewModel.cs.pp",
+        "Content/ViewModel/ViewModelLocator.cs.pp",
+        "mvvmlight.5.4.1.nupkg.sha512",
+        "mvvmlight.nuspec",
+        "tools/install.ps1"
       ]
     },
     "NETStandard.Library/2.0.1": {
@@ -5340,6 +5355,7 @@
   "projectFileDependencyGroups": {
     ".NETStandard,Version=v2.0": [
       "CommonServiceLocator >= 2.0.3",
+      "MvvmLight >= 5.4.1",
       "NETStandard.Library >= 2.0.1",
       "Prism.Core >= 7.0.0.396",
       "Prism.Forms >= 7.0.0.396",
@@ -5401,6 +5417,10 @@
           "CommonServiceLocator": {
             "target": "Package",
             "version": "[2.0.3, )"
+          },
+          "MvvmLight": {
+            "target": "Package",
+            "version": "[5.4.1, )"
           },
           "NETStandard.Library": {
             "suppressParent": "All",
