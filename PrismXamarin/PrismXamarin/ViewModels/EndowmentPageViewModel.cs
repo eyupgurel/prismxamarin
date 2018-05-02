@@ -62,7 +62,7 @@ namespace PrismXamarin.ViewModels
 	                resp.items.ForEach(user => _userNames.Add(new Skill{
                         IsRequired = true,
                         Name = user.ToString(),
-                        Surname = user.ToString() + user.ToString()
+                        Surname = user.ToString()
 	                }));
 	            },
 	            ex => {

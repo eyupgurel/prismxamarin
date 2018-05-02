@@ -28,7 +28,10 @@ namespace PrismXamarin.Models
         public bool IsRequired
         {
             get => isRequired;
-            set => isRequired = value;
+            set
+            {
+                isRequired = value;
+            }
         }
     }
 }

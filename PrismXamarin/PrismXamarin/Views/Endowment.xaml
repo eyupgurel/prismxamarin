@@ -17,7 +17,13 @@
         <ListView x:Name="listView" ItemsSource="{Binding UserNames}">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <TextCell Text="{Binding Surname}" />
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Surname}" />
+                            <Switch IsToggled="{Binding IsRequired, Mode=TwoWay}"></Switch>
+                        </StackLayout>
+                    </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
