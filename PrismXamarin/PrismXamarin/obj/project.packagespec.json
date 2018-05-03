@@ -1,0 +1,96 @@
+﻿{
+  "version": "1.0.0",
+  "restore": {
+    "projectUniqueName": "C:\\Users\\eyupg\\source\\repos\\PrismXamarin\\PrismXamarin\\PrismXamarin\\PrismXamarin.csproj",
+    "projectName": "PrismXamarin",
+    "projectPath": "C:\\Users\\eyupg\\source\\repos\\PrismXamarin\\PrismXamarin\\PrismXamarin\\PrismXamarin.csproj",
+    "outputPath": "C:\\Users\\eyupg\\source\\repos\\PrismXamarin\\PrismXamarin\\PrismXamarin\\obj\\",
+    "projectStyle": "PackageReference",
+    "fallbackFolders": [
+      "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ],
+    "originalTargetFrameworks": [
+      "netstandard2.0"
+    ],
+    "frameworks": {
+      "netstandard2.0": {
+        "projectReferences": {}
+      }
+    },
+    "warningProperties": {
+      "warnAsError": [
+        "NU1605"
+      ]
+    }
+  },
+  "frameworks": {
+    "netstandard2.0": {
+      "dependencies": {
+        "CommonServiceLocator": {
+          "target": "Package",
+          "version": "[2.0.3, )"
+        },
+        "MvvmLight": {
+          "target": "Package",
+          "version": "[5.4.1, )"
+        },
+        "NETStandard.Library": {
+          "suppressParent": "All",
+          "target": "Package",
+          "version": "[2.0.1, )",
+          "autoReferenced": true
+        },
+        "Prism.Core": {
+          "target": "Package",
+          "version": "[7.0.0.396, )"
+        },
+        "Prism.Forms": {
+          "target": "Package",
+          "version": "[7.0.0.396, )"
+        },
+        "Prism.Unity.Forms": {
+          "target": "Package",
+          "version": "[7.0.0.396, )"
+        },
+        "Refit": {
+          "target": "Package",
+          "version": "[4.3.0, )"
+        },
+        "System.Reactive": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
+        "System.Reactive.Core": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
+        "System.Reactive.Interfaces": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
+        "System.Reactive.Linq": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
+        "System.Reactive.PlatformServices": {
+          "target": "Package",
+          "version": "[3.1.1, )"
+        },
+        "Unity": {
+          "target": "Package",
+          "version": "[5.8.5, )"
+        },
+        "Xamarin.Forms": {
+          "target": "Package",
+          "version": "[2.5.1.444934, )"
+        }
+      },
+      "imports": [
+        "net461"
+      ],
+      "assetTargetFallback": true,
+      "warn": true
+    }
+  }
+}

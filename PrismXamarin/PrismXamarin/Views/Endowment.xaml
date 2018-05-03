@@ -6,22 +6,16 @@
              Title="{Binding Title}">
 
 
-
     <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-
-        <!--<Label Text="{Binding MyDateTime}" />
-        <ListView x:Name="listView" 
-                  ItemsSource="{Binding UserNames}" />-->
-
-
-        <ListView x:Name="listView" ItemsSource="{Binding UserNames}">
+        <Entry Text="{Binding Filter, Mode=OneWayToSource}"/>
+        <ListView x:Name="listView" ItemsSource="{Binding DynamicUserNames}">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
                         <StackLayout Orientation="Horizontal">
+                            <Switch IsToggled="{Binding IsRequired, Mode=TwoWay}"></Switch>
                             <Label Text="{Binding Name}" />
                             <Label Text="{Binding Surname}" />
-                            <Switch IsToggled="{Binding IsRequired, Mode=TwoWay}"></Switch>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>

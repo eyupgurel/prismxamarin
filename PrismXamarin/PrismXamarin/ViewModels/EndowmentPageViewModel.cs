@@ -14,75 +14,79 @@ using PrismXamarin.Interface;
 using PrismXamarin.Models;
 using Refit;
 using Xamarin.Forms;
+using Xamarin.Forms.Internals;
 
 namespace PrismXamarin.ViewModels
 {
 	public class EndowmentPageViewModel : ViewModelBase
 
-    {
-        //private ObservableCollection<Skill> _skills = new ObservableCollection<Skill>();
+	{
 
-        //public ObservableCollection<Skill> Skills
-        //{
-        //    get => _skills;
-        //    set => _skills = value;
-        //}
+	    private string _filter;
 
-        //public EndowmentPageViewModel()
-        //   {
-        //       Load();
-        //   }
+        private ObservableCollection<Skill> _dynamicUserNames = new ObservableCollection<Skill>();
+	    private ObservableCollection<Skill> _originalUserNames = new ObservableCollection<Skill>();
 
-        //private void Load()
-        //{
-        //       _skills.Add(new Skill
-        //       {
-        //           IsRequired = true,
-        //           Name = "Accounting"
-        //       });
-        //
-
-
-        private ObservableCollection<Skill> _userNames = new ObservableCollection<Skill>();
-	    public EndowmentPageViewModel(INavigationService navigationService)
-	        : base(navigationService)
+	    public ObservableCollection<Skill> DynamicUserNames
 	    {
-	        Title = "Endowment Page";
-	        Load();
-	      
+	        get => _dynamicUserNames;
+	        set => _dynamicUserNames = value;
+	    }
+
+	    public string Filter
+	    {
+	        get => _filter;
+	        set
+	        {
+	            DynamicUserNames = FilterSkillSet(value);
+	            _filter = value;
+	            RaisePropertyChanged("DynamicUserNames");
+            }
+	    }
+
+	    private ObservableCollection<Skill> FilterSkillSet(string filter)
+	    {
+	        return string.IsNullOrWhiteSpace(filter) ? _originalUserNames: new ObservableCollection<Skill>(_dynamicUserNames.Where(skill => skill.Name.Substring(0, filter.Length) == filter));
         }
 
-	    private void Load()
-	    {
-	        var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
-	        IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
+        
+        
+        public EndowmentPageViewModel(INavigationService navigationService)
+			: base(navigationService)
+		{
+			Title = "Endowment Page";
+			Load();
+		  
+		}
 
-	        var disp = istanbulUsers.Subscribe(resp =>
-	            {
-	                resp.items.ForEach(user => _userNames.Add(new Skill{
-                        IsRequired = true,
-                        Name = user.ToString(),
-                        Surname = user.ToString()
-	                }));
-	            },
-	            ex => {
-	                string error = ex.Message;
-	            },
-	            () => { }
-	        );
-	        disposables.Add(disp);
-	    }
+		private void Load()
+		{
+			var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
+			IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
 
-	    public ObservableCollection<Skill> UserNames
-	    {
-	        get { return _userNames; }
-	    }
+			var disp = istanbulUsers.Subscribe(resp =>
+				{
+					resp.items.ForEach(user =>
+					{
+					    Skill newSkill = new Skill
+					    {
+					        IsRequired = true,
+					        Name = user.ToString(),
+					        Surname = user.ToString()
+					    };
+					    _dynamicUserNames.Add(newSkill);
+                        _originalUserNames.Add(newSkill);
+					});
+                },
+				ex => {
+					string error = ex.Message;
+				},
+				() => { }
+			);
+			disposables.Add(disp);
+		}
 
-
-
-
-
-    }
+	}
 
 
 }
