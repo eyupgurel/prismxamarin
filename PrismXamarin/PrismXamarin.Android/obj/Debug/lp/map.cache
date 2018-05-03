@@ -45,6 +45,7 @@ Xamarin.Forms.Platform
 Xamarin.Forms.Xaml
 netstandard
 System.ComponentModel
+System.Xml.ReaderWriter
 System.Resources.ResourceManager
 System.Threading.Tasks
 System.Diagnostics.Debug
@@ -61,7 +62,6 @@ System.Xml.XmlDocument
 System.Xml.XDocument
 System.Dynamic.Runtime
 System.Runtime.Serialization.Formatters
-System.Xml.ReaderWriter
 System.Reflection.Primitives
 System.Text.Encoding.Extensions
 System.Net.Primitives

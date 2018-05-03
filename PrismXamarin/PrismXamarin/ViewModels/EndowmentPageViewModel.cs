@@ -24,13 +24,14 @@ namespace PrismXamarin.ViewModels
 
 	    private string _filter;
 
-        private ObservableCollection<Skill> _dynamicUserNames = new ObservableCollection<Skill>();
-	    private ObservableCollection<Skill> _originalUserNames = new ObservableCollection<Skill>();
+	    private ObservableCollection<Skill> _userNames = new ObservableCollection<Skill>();
 
 	    public ObservableCollection<Skill> DynamicUserNames
 	    {
-	        get => _dynamicUserNames;
-	        set => _dynamicUserNames = value;
+	        get
+	        {
+	            return GetDynamicUserNames();
+	        }
 	    }
 
 	    public string Filter
@@ -38,15 +39,14 @@ namespace PrismXamarin.ViewModels
 	        get => _filter;
 	        set
 	        {
-	            DynamicUserNames = FilterSkillSet(value);
 	            _filter = value;
 	            RaisePropertyChanged("DynamicUserNames");
             }
 	    }
 
-	    private ObservableCollection<Skill> FilterSkillSet(string filter)
+	    private ObservableCollection<Skill> GetDynamicUserNames()
 	    {
-	        return string.IsNullOrWhiteSpace(filter) ? _originalUserNames: new ObservableCollection<Skill>(_dynamicUserNames.Where(skill => skill.Name.Substring(0, filter.Length) == filter));
+	        return string.IsNullOrWhiteSpace(Filter) ? new ObservableCollection<Skill>(_userNames.Where(skill => true)) : new ObservableCollection<Skill>(_userNames.Where(skill => skill.Name.Substring(0, Filter.Length) == Filter));
         }
 
         
@@ -74,9 +74,9 @@ namespace PrismXamarin.ViewModels
 					        Name = user.ToString(),
 					        Surname = user.ToString()
 					    };
-					    _dynamicUserNames.Add(newSkill);
-                        _originalUserNames.Add(newSkill);
+                        _userNames.Add(newSkill);
 					});
+				    RaisePropertyChanged("DynamicUserNames");
                 },
 				ex => {
 					string error = ex.Message;

@@ -6,7 +6,7 @@
              Title="{Binding Title}">
 
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="50">
         <Entry Text="{Binding Filter, Mode=OneWayToSource}"/>
         <ListView x:Name="listView" ItemsSource="{Binding DynamicUserNames}">
             <ListView.ItemTemplate>

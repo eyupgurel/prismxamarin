@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PrismXamarin.Views.TestBindingPage">
+    
+    <StackLayout Margin="50">
+        <Label Text="One Way Mode" FontSize="24"></Label>
+        <Entry Text="{Binding Text, Source={x:Reference onewaytxt}, Mode=OneWay}"/>
+        <Entry x:Name ="onewaytxt"></Entry>
+        <Label Text="Two Way Mode" FontSize="24"></Label>
+        <Entry Text="{Binding Text, Source={x:Reference twowaytxt}, Mode=TwoWay}"/>
+        <Entry x:Name ="twowaytxt"></Entry>
+        <Label Text="One Way To Source Mode" FontSize="24"></Label>
+        <Entry Text="{Binding Text, Source={x:Reference onewaytosourcetxt}, Mode=OneWayToSource}"/>
+        <Entry x:Name ="onewaytosourcetxt"></Entry>
+
+    </StackLayout>
+  
+</ContentPage>

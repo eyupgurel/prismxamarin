@@ -33,6 +33,8 @@ namespace PrismXamarin
             };
             //await NavigationService.NavigateAsync("NavigationPage/MainPage");
             await NavigationService.NavigateAsync("NavigationPage/EndowmentPage");
+            //await NavigationService.NavigateAsync("NavigationPage/TestBindingPage");
+            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -40,6 +42,8 @@ namespace PrismXamarin
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage>();
             containerRegistry.RegisterForNavigation<EndowmentPage>();
+            containerRegistry.RegisterForNavigation<TestBindingPage>();
+            containerRegistry.RegisterForNavigation<LoginPage>();
         }
     }
 }
