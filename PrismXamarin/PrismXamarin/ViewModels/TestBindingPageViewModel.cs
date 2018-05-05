@@ -3,14 +3,14 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Prism.Navigation;
 
 namespace PrismXamarin.ViewModels
 {
-	public class TestBindingPageViewModel : BindableBase
+	public class TestBindingPageViewModel : ViewModelBase
 	{
-        public TestBindingPageViewModel()
-        {
-
-        }
+	    public TestBindingPageViewModel(INavigationService navigationService) : base(navigationService)
+	    {
+	    }
 	}
 }

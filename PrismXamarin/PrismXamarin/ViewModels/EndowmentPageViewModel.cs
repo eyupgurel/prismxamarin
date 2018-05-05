@@ -21,18 +21,11 @@ namespace PrismXamarin.ViewModels
 	public class EndowmentPageViewModel : ViewModelBase
 
 	{
-
 	    private string _filter;
+        private readonly Subject<string> _sparseFilterSubject = new Subject<string>();
+	    private readonly ObservableCollection<Skill> _userNames = new ObservableCollection<Skill>();
 
-	    private ObservableCollection<Skill> _userNames = new ObservableCollection<Skill>();
-
-	    public ObservableCollection<Skill> DynamicUserNames
-	    {
-	        get
-	        {
-	            return GetDynamicUserNames();
-	        }
-	    }
+	    public ObservableCollection<Skill> DynamicUserNames => GetDynamicUserNames();
 
 	    public string Filter
 	    {
@@ -40,16 +33,15 @@ namespace PrismXamarin.ViewModels
 	        set
 	        {
 	            _filter = value;
-	            RaisePropertyChanged("DynamicUserNames");
+                _sparseFilterSubject.OnNext(_filter);
             }
 	    }
 
 	    private ObservableCollection<Skill> GetDynamicUserNames()
 	    {
-	        return string.IsNullOrWhiteSpace(Filter) ? new ObservableCollection<Skill>(_userNames.Where(skill => true)) : new ObservableCollection<Skill>(_userNames.Where(skill => skill.Name.Substring(0, Filter.Length) == Filter));
+	        return string.IsNullOrWhiteSpace(Filter) ? new ObservableCollection<Skill>(_userNames.Where(skill => true)) : new ObservableCollection<Skill>(_userNames.Where(skill => (skill.Name.Trim().Length >= Filter.Trim().Length) && (skill.Name.Trim().Substring(0, Filter.Length).ToLower() == Filter.Trim().ToLower())));
         }
-
-        
+     
         
         public EndowmentPageViewModel(INavigationService navigationService)
 			: base(navigationService)
@@ -62,13 +54,13 @@ namespace PrismXamarin.ViewModels
 		private void Load()
 		{
 			var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
-			IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
+			var istanbulUsers = gitHubApi.GetIstanbulUsers();
 
 			var disp = istanbulUsers.Subscribe(resp =>
 				{
 					resp.items.ForEach(user =>
 					{
-					    Skill newSkill = new Skill
+					    var newSkill = new Skill
 					    {
 					        IsRequired = true,
 					        Name = user.ToString(),
@@ -79,14 +71,19 @@ namespace PrismXamarin.ViewModels
 				    RaisePropertyChanged("DynamicUserNames");
                 },
 				ex => {
-					string error = ex.Message;
+					var error = ex.Message;
 				},
 				() => { }
 			);
-			disposables.Add(disp);
-		}
+		    Disposables.Add(disp);
 
-	}
+		   disp = _sparseFilterSubject.Throttle(TimeSpan.FromMilliseconds(100)).Subscribe((s => RaisePropertyChanged("DynamicUserNames")));
+		   Disposables.Add(disp);
+         
+
+        }
+
+    }
 
 
 }

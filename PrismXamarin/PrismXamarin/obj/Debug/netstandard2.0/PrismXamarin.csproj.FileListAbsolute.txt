@@ -11,3 +11,5 @@ C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\net
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.Views.Endowment.xaml.g.cs
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.Views.TestBindingPage.xaml.g.cs
 C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.Views.LoginPage.xaml.g.cs
+C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.Views.JobDefinitionPage.xaml.g.cs
+C:\Users\eyupg\source\repos\PrismXamarin\PrismXamarin\PrismXamarin\obj\Debug\netstandard2.0\PrismXamarin.csprojResolveAssemblyReference.cache

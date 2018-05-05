@@ -9,55 +9,40 @@ using Xamarin.Forms;
 
 namespace PrismXamarin.ViewModels
 {
-	public class LoginPageViewModel : BindableBase
+	public class LoginPageViewModel : ViewModelBase
 	{
 
 
 	    private string _userName;
 	    private string _userPassword;
-        private readonly Command _loginCommand;
-	    private INavigationService _navigationService;
+        private DelegateCommand _loginCommand;
 
-
-	    public LoginPageViewModel(INavigationService navigationService)
+	    public LoginPageViewModel(INavigationService navigationService) : base(navigationService)
 	    {
-	        _navigationService = navigationService;
-	        _loginCommand = new Command(LoginExecute, LoginCanExecute);
 	    }
+
+	    public DelegateCommand LoginCommand => 
+	        _loginCommand ?? (_loginCommand = new DelegateCommand(LoginExecute, () => !string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(UserPassword)).ObservesProperty(() => UserName).ObservesProperty(() => UserPassword));
+        
+
+
 
 
         public string UserName
 	    {
 	        get => _userName;
-	        set
-	        {
-	            _userName = value;
-                LoginCommand.ChangeCanExecute();
-	        }
+	        set  => SetProperty(ref _userName, value);
 	    }
 	    public string UserPassword
 	    {
 	        get => _userPassword;
-	        set
-	        {
-	            _userPassword = value;
-                LoginCommand.ChangeCanExecute();
-	        }
-	    }
-
-
-	    public Command LoginCommand => _loginCommand;
-
-
+	        set => SetProperty(ref _userPassword, value);
+        }
+        
 
 	    private void LoginExecute()
 	    {
-	        _navigationService.NavigateAsync("NavigationPage/EndowmentPage");
-	    }
-
-	    private bool LoginCanExecute()
-	    {
-	        return !string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(UserPassword);
+	        NavigationService.NavigateAsync("NavigationPage/EndowmentPage");
 	    }
 	}
 }

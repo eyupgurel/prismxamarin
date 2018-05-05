@@ -18,35 +18,10 @@ namespace PrismXamarin.ViewModels
 {
     public class MainPageViewModel : ViewModelBase
     {
-        private ObservableCollection<String> userNames= new ObservableCollection<String>();
         public MainPageViewModel(INavigationService navigationService) 
             : base (navigationService)
         {
             Title = "Main Page";
-            Load();
-        }
-
-        private void Load()
-        {
-            var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
-
-            IObservable<ApiResponse> istanbulUsers = gitHubApi.GetIstanbulUsers();
-
-            var disp = istanbulUsers.Subscribe(resp =>
-                {
-                    resp.items.ForEach(user => userNames.Add(user.ToString()));
-                },
-                ex => {
-                    string error = ex.Message;
-                },
-                () => { }
-            );
-            disposables.Add(disp);
-        }
-
-        public ObservableCollection<String> UserNames
-        {
-            get { return userNames; }
         }
 
     }

@@ -32,9 +32,10 @@ namespace PrismXamarin
                 Converters = { new StringEnumConverter() }
             };
             //await NavigationService.NavigateAsync("NavigationPage/MainPage");
-            await NavigationService.NavigateAsync("NavigationPage/EndowmentPage");
+            //await NavigationService.NavigateAsync("NavigationPage/EndowmentPage");
             //await NavigationService.NavigateAsync("NavigationPage/TestBindingPage");
             //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
+            await NavigationService.NavigateAsync("NavigationPage/JobDefinitionPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -44,6 +45,7 @@ namespace PrismXamarin
             containerRegistry.RegisterForNavigation<EndowmentPage>();
             containerRegistry.RegisterForNavigation<TestBindingPage>();
             containerRegistry.RegisterForNavigation<LoginPage>();
+            containerRegistry.RegisterForNavigation<JobDefinitionPage>();
         }
     }
 }
