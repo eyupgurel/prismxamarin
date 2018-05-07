@@ -24,9 +24,7 @@ namespace PrismXamarin.ViewModels
 	    public DelegateCommand LoginCommand => 
 	        _loginCommand ?? (_loginCommand = new DelegateCommand(LoginExecute, () => !string.IsNullOrWhiteSpace(UserName) && !string.IsNullOrWhiteSpace(UserPassword)).ObservesProperty(() => UserName).ObservesProperty(() => UserPassword));
         
-
-
-
+        
 
         public string UserName
 	    {

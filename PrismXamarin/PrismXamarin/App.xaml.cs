@@ -31,10 +31,6 @@ namespace PrismXamarin
                 ContractResolver = new CamelCasePropertyNamesContractResolver(),
                 Converters = { new StringEnumConverter() }
             };
-            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
-            //await NavigationService.NavigateAsync("NavigationPage/EndowmentPage");
-            //await NavigationService.NavigateAsync("NavigationPage/TestBindingPage");
-            //await NavigationService.NavigateAsync("NavigationPage/LoginPage");
             await NavigationService.NavigateAsync("NavigationPage/JobDefinitionPage");
         }
 

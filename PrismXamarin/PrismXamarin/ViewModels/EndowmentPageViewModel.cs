@@ -20,10 +20,24 @@ namespace PrismXamarin.ViewModels
 {
 	public class EndowmentPageViewModel : ViewModelBase
 
-	{
+    {
 	    private string _filter;
         private readonly Subject<string> _sparseFilterSubject = new Subject<string>();
 	    private readonly ObservableCollection<Skill> _userNames = new ObservableCollection<Skill>();
+
+	    private DelegateCommand _changeSkillsCommand;
+
+	    public DelegateCommand ChangeSkillsCommand => 
+	        _changeSkillsCommand ?? (_changeSkillsCommand = new DelegateCommand(ChangeSkillsExecute));
+
+	    private void ChangeSkillsExecute()
+	    {
+            NavigationParameters np = new NavigationParameters()
+            {
+                {"skills", _userNames}
+            };
+	        NavigationService.GoBackAsync(np);
+        }
 
 	    public ObservableCollection<Skill> DynamicUserNames => GetDynamicUserNames();
 
@@ -47,11 +61,10 @@ namespace PrismXamarin.ViewModels
 			: base(navigationService)
 		{
 			Title = "Endowment Page";
-			Load();
 		  
 		}
 
-		private void Load()
+		private void Load(IEnumerable<string> checkedNames)
 		{
 			var gitHubApi = RestService.For<IGitHubApi>("https://api.github.com");
 			var istanbulUsers = gitHubApi.GetIstanbulUsers();
@@ -62,7 +75,7 @@ namespace PrismXamarin.ViewModels
 					{
 					    var newSkill = new Skill
 					    {
-					        IsRequired = true,
+					        IsRequired = checkedNames.Contains(user.ToString()),
 					        Name = user.ToString(),
 					        Surname = user.ToString()
 					    };
@@ -83,6 +96,11 @@ namespace PrismXamarin.ViewModels
 
         }
 
+	    public override void OnNavigatingTo(NavigationParameters parameters)
+	    {
+	        base.OnNavigatingTo(parameters);
+            Load((IEnumerable<string>)parameters["selected"]);
+	    }
     }
 
 

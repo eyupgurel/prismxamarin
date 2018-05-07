@@ -6,7 +6,7 @@
              Title="{Binding Title}">
 
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="50">
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Margin="10">
         <Entry Text="{Binding Filter, Mode=OneWayToSource}"/>
         <ListView x:Name="listView" ItemsSource="{Binding DynamicUserNames}">
             <ListView.ItemTemplate>
@@ -21,6 +21,13 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        
+        <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand">
+            <Button BackgroundColor="DimGray"  Text="Vazgeç"></Button>
+            <Button BackgroundColor="Red" Text="Ekle" Command ="{Binding ChangeSkillsCommand}"></Button>
+        </StackLayout>
+        
+
 
 
     </StackLayout>
